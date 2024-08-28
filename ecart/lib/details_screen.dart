@@ -32,6 +32,16 @@ class DetailScreen extends StatelessWidget {
                   ),
                 ),
                 Positioned(
+                  top: MediaQuery.of(context).padding.top + 10,
+                  right: 10,
+                  child: GestureDetector(
+                    onTap: () {
+                      // Add share functionality here
+                    },
+                    child: const Icon(Icons.share),
+                  ),
+                ),
+                Positioned(
                   bottom: -50,
                   right: 30,
                   left: 30,
@@ -47,7 +57,7 @@ class DetailScreen extends StatelessWidget {
                         )
                       ],
                       borderRadius: BorderRadius.circular(20),
-                      color: Color.fromARGB(255, 171, 99, 36),
+                      color: const Color.fromARGB(255, 171, 99, 36),
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -77,7 +87,7 @@ class DetailScreen extends StatelessWidget {
                                     ),
                                   ),
                                 ],
-                              )
+                              ),
                             ],
                           ),
                         ),
@@ -102,7 +112,7 @@ class DetailScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                )
+                ),
               ],
             ),
             Padding(
@@ -146,7 +156,7 @@ class DetailScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 10),
                   const Text(
-                    "category",
+                    "Category",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 22,
@@ -161,7 +171,7 @@ class DetailScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                   const Text(
+                  const Text(
                     "Price",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
@@ -171,7 +181,7 @@ class DetailScreen extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(left: 15, top: 10),
                     child: Text(
-                      productElement.price.toString(),
+                      '\$${productElement.price.toString()}',
                       style: const TextStyle(
                         fontSize: 18,
                       ),
@@ -188,7 +198,7 @@ class DetailScreen extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(left: 15, top: 10),
                     child: Text(
-                      productElement.discountPercentage.toString(),
+                      '${productElement.discountPercentage.toString()}%',
                       style: const TextStyle(
                         fontSize: 18,
                       ),
@@ -211,11 +221,36 @@ class DetailScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                   
                 ],
               ),
             ),
             const SizedBox(height: 40),
+            Padding(
+              padding: const EdgeInsets.all(15),
+              child: SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {
+                    
+                  },
+                  style: ElevatedButton.styleFrom(
+                 backgroundColor: Colors.red,
+                    padding: const EdgeInsets.symmetric(vertical: 15),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                  child: const Text(
+                    "ADD TO CART",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
