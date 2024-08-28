@@ -42,7 +42,7 @@ class ProductElement {
     int id;
     String title;
     String description;
-    int price;
+    double price;
     double discountPercentage;
     double rating;
     int stock;
@@ -66,17 +66,17 @@ class ProductElement {
     });
 
     factory ProductElement.fromJson(Map<String, dynamic> json) => ProductElement(
-        id: json["id"],
-        title: json["title"],
-        description: json["description"],
-        price: json["price"],
-        discountPercentage: json["discountPercentage"]?.toDouble(),
-        rating: json["rating"]?.toDouble(),
-        stock: json["stock"],
-        brand: json["brand"],
-        category: json["category"],
-        thumbnail: json["thumbnail"],
-        images: List<String>.from(json["images"].map((x) => x)),
+        id: json["id"] ?? 0,
+        title: json["title"] ?? "",
+        description: json["description"] ?? "",
+        price: json["price"] ?? 3.3,
+        discountPercentage: json["discountPercentage"]?.toDouble() ?? 4.4 ,
+        rating: json["rating"]?.toDouble() ?? 5.5,
+        stock: json["stock"] ?? 0,
+        brand: json["brand"] ?? "",
+        category: json["category"] ?? "",
+        thumbnail: json["thumbnail"] ?? "",
+        images: List<String>.from(json["images"].map((x) => x)) ?? [] ,
     );
 
     Map<String, dynamic> toJson() => {
